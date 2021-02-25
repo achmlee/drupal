@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * @file
+ * Unconventional tools developed by me to help in everyday tasks.
+ *
+ * Modeled after ctools.
+ */
+
+/**
+ * Debug utility. Outputs item and kills page.
+ *
+ * @param mixed $item
+ *   Item to output (can be string or object)
+ */
+function db($item = NULL) {
+  if (empty($item) && $item != 0) {
+    $item = 'No Data';
+  }
+
+  print 'Mike\'s DEBUG (yell at me only if this lasts for more than 5 minutes):<br /><pre>';
+  print_r($item);
+  print '</pre>';
+  die();
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mtools_menu() {
+  $items['mtools/form'] = [
+    'title' => 'Test Form',
+    'description' => 'Test Form Description',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['mtools_form'],
+    'access callback' => TRUE,
+    'file' => 'mtools.inc',
+  ];
+
+  // One arg test page.
+  $items['mtools/test/%'] = [
+    'title' => 'Test Page (Single Arg)',
+    'description' => 'Test page.',
+    'page callback' => 'mtools_test',
+    'page arguments' => [2],
+    'access callback' => TRUE,
+    'file' => 'mtools.inc',
+  ];
+
+  // Two arg test page.
+  $items['mtools/test/%/%'] = [
+    'title' => 'Test Page (Double Arg)',
+    'description' => 'Test page.',
+    'page callback' => 'mtools_test',
+    'page arguments' => [2, 3],
+    'access callback' => TRUE,
+    'file' => 'mtools.inc',
+  ];
+
+  return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function mtools_block_info() {
+  $blocks['mtools_test'] = [
+    'info' => t('Block Test'),
+    'cache' => DRUPAL_NO_CACHE
+  ];
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mtools_block_view($delta = '') {
+  $text = 'test';
+
+  switch ($delta) {
+    case 'mtools_test':
+      $block['subject'] = t('Test Block');
+      $block['content'] = $text;
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_init().
+ *
+ * Designed for testing only.
+ */
+function mtools_init() {
+  global $user;
+}
+
+/**
+ * Helper function. Backtrace utility.
+ *
+ * @param int $limit
+ *   (optional) Number of frames to return.
+ *   Note: Doesn't work.
+ */
+function dbt($limit = 1) {
+  $r = debug_backtrace($limit);
+  db($r);
+}
+

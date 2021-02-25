@@ -1,0 +1,5 @@
+name = Mike Tools
+description = Collection of helper tools created by me.
+package = Misc
+core = 7.x
+version = "7.x-1.3"

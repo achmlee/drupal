@@ -1,0 +1,7 @@
+mtools.content:
+  path: '/mtools/test'
+  defaults:
+    _controller: '\Drupal\mtools\Controller\MtoolsController::content'
+    _title: 'MTools Test Page'
+  requirements:
+    _permission: 'access content'
