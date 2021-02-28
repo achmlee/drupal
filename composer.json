@@ -11,5 +11,8 @@
       "email": "michael.lee@achieveinternet.com",
       "role": "Maintainer"
     }
-  ]
+  ],
+  "require": {
+    "composer/installers": "*"
+  }
 }
