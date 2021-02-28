@@ -1,0 +1,15 @@
+{
+  "name": "achmlee/mtools",
+  "description": "Custom debug tools.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "homepage": "https://github.com/achmlee/mtools",
+  "authors": [
+    {
+      "name": "Michael Lee (mlee)",
+      "email": "michael.lee@achieveinternet.com",
+      "role": "Maintainer"
+    }
+  ]
+}
