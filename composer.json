@@ -12,6 +12,9 @@
       "role": "Maintainer"
     }
   ],
+  "extra": {
+    "installer-disable": true
+  },
   "require": {
     "composer/installers": "*"
   }
