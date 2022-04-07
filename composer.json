@@ -12,10 +12,8 @@
       "role": "Maintainer"
     }
   ],
-  "extra": {
-    "installer-disable": true
-  },
   "require": {
-    "composer/installers": "*"
+    "composer/installers": "*",
+    "drupal/drupal": "^7.62"
   }
 }
